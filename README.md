@@ -36,7 +36,13 @@ Run `fetch_channels.py` to retrieve YouTube metadata for the channels listed in 
 
 ```bash
 python fetch_channels.py
+python update_db.py
 ```
+
+---
+
+### Step 3: Import the updated settings.db file into Freetube
+
 ## ⚖️ Attribution & License
 
 * **Code License:** [MIT License](LICENSE)
