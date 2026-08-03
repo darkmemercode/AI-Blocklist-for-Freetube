@@ -13,6 +13,14 @@ A set of Python scripts and a pre-compiled dataset to manage and import channel 
 
 ---
 
+## ⚖️ Attribution & License
+
+    Code License: MIT License (see LICENSE).
+
+    Dataset Credit: The default blocklist input standard is derived from AiSList by Override92 (https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt).
+
+    Dataset License: Shared under the Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0) license (https://creativecommons.org/licenses/by-nc/4.0/).
+
 ## 🚀 How to Apply the Blocklist to FreeTube
 
 Follow these steps to safely inject the channel list into your FreeTube database:
