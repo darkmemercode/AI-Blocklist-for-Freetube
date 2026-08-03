@@ -32,7 +32,7 @@ Follow these steps to generate your channel list and safely inject it into your 
 ---
 
 ### Step 2: Fetch Channel Data
-Run `fetch_channels.py` to retrieve YouTube metadata for the channels listed in `blocklist.txt`. This script outputs the `freetube_channels.json` file needed for the database update.
+Run `fetch_channels.py` to retrieve YouTube metadata for the channels listed in `blocklist.txt`. This script outputs the `freetube_channels.json` file needed for the database update with `update_db.py`.
 
 ```bash
 python fetch_channels.py
