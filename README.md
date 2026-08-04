@@ -8,7 +8,7 @@ A set of Python scripts and a pre-compiled dataset to manage and import channel 
 
 * **`blocklist.txt`**: Raw input list of targeted YouTube channel IDs and handles.
 * **`fetch_channels.py`**: Fetches channel metadata from YouTube based on `blocklist.txt` and generates `freetube_channels.json`.
-* **`freetube_channels.json`**: Pre-built channel blocklist ready for database insertion.
+* **`freetube_channels.json`**: Pre-built channel blocklist with >19,000 AI-channels ready for database insertion.
 * **`update_db.py`**: Injects the fetched channels into your FreeTube `settings.db` file.
 
 ---
