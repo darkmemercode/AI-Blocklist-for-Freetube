@@ -26,7 +26,7 @@ Follow these steps to generate your channel list and safely inject it into your 
 ### Step 1: Export Your FreeTube Database
 1. Open **FreeTube**.
 2. Go to **Settings** -> **Data**.
-3. Click **Export Database** (or locate your existing `settings.db` file).
+3. Click **Export Settings** (or locate your existing `settings.db` file).
 4. Save the exported `settings.db` file in the same directory as these scripts.
 
 ---
