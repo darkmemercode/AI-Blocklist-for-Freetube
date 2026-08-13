@@ -37,13 +37,23 @@ Follow these steps to generate your channel list and safely inject it into your 
 Run `fetch_channels.py` to retrieve YouTube metadata for the channels listed in `blocklist.txt`. This script outputs the `freetube_channels.json` file needed for the database update with `update_db.py`.
 
 ```bash
+# Option A: Use the faster, optimized script (Recommended)
+python fetch_channels_faster.py
+python update_db.py
+```
+
+```bash
+# Option B: Use the standard script
 python fetch_channels.py
 python update_db.py
 ```
 
 ---
 
-### Step 3: Import the updated settings.db file into Freetube
+### Step 3: Import the updated settings.db:
+1. Go to **Settings** -> **Data**.
+2. Click **Import Settings** and select your updated `settings.db` file (or replace the file in your FreeTube data directory manually).
+3. Restart FreeTube to apply the changes.
 
 ## ⚖️ Attribution & License
 
