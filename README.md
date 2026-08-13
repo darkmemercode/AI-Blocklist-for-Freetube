@@ -10,7 +10,7 @@ A set of Python scripts and a pre-compiled dataset to manage and import channel 
 * **`fetch_channels.py`**: Fetches channel metadata from YouTube based on `blocklist.txt` and generates `freetube_channels.json`.
 * **`fetch_channels_faster.py`**: A faster and more efficient version of fetch_channels.py that also creates a `handles_mapping.json` file that allows for faster re-runs when updating the blocklist.
 * **`freetube_channels.json`**: Pre-built channel blocklist with >19,000 AI-channels ready for database insertion.
-* **`handles_mapping.json`**: List of already added channels for faster updates of the blocklist.
+* **`handles_mapping.json`**: List of already added channels (Channel @ and Channel ID) for faster updates of the blocklist.
 * **`update_db.py`**: Injects the fetched channels into your FreeTube `settings.db` file.
 
 ---
