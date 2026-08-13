@@ -21,7 +21,12 @@ Follow these steps to generate your channel list and safely inject it into your 
 
 ### Prerequisites
 * **Python 3.x** installed on your system.
+* **Install required libraries:**
+```bash
+pip install yt-dlp httpx
+```
 * **FreeTube** installed.
+
 
 ---
 
