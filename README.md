@@ -50,7 +50,7 @@ python update_db.py
 
 ---
 
-### Step 3: Import the updated settings.db:
+### Step 3: Import the updated settings.db file:
 1. Go to **Settings** -> **Data**.
 2. Click **Import Settings** and select your updated `settings.db` file (or replace the file in your FreeTube data directory manually).
 3. Restart FreeTube to apply the changes.
