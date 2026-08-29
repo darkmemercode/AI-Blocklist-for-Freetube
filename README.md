@@ -58,7 +58,8 @@ python update_db.py
 ### Step 3: Import the updated `settings.db` file:
 1. Go to **Settings** -> **Data**.
 2. Click **Import Settings** and select your updated `settings.db` file (or replace the file in your FreeTube data directory manually).
-3. Restart FreeTube to apply the changes.
+3. Not mandatory: Go to **Settings** -> **Distraction Free** and untick the **Show Added Items**-Box to make using your settings easier without showing all 20k channels.
+4. Restart FreeTube to apply the changes.
 
 ## ⚖️ Attribution & License
 
