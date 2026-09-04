@@ -67,7 +67,7 @@ pip install yt-dlp httpx
 
 ### Step 2: Fetch Channel Data
 - Run `fetch_channels.py` or `fetch_channels_faster.py` to retrieve YouTube metadata for the channels listed in `blocklist.txt`. 
-- `fetch_channels_faster.py` takes about 1-2 hours to fetch the metadata due to sleep timers that are used to prevent rate limiting by YouTube. 
+- `fetch_channels_faster.py` typically takes 1–2 hours on the full 21,000-entry list. Most entries resolve quickly via direct page scraping, but channels that fail this fast path fall back to a more conservative yt-dlp-based lookup (limited to 2 concurrent workers to avoid triggering YouTube's rate limiting), which accounts for most of the runtime.
 - This generates the `freetube_channels.json` file needed for the database update in `update_db.py`.
 
 ```bash
@@ -89,6 +89,23 @@ python update_db.py
 2. Click **Import Settings** and select your updated `settings.db` file (or manually replace the file in your FreeTube data directory).
 3. *Optional:* Go to **Settings** → **Distraction Free** and untick **Show Added Items** to keep your UI clean without showing all 20k+ channels.
 4. Restart FreeTube to apply the changes.
+
+---
+
+### Step 4: Updating the Blocklist Later
+
+To pick up new channels added to the source list:
+
+1. Open [AiSList by Override92](https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt) and copy its full contents.
+2. Paste them into your local `blocklist.txt`, replacing the old contents.
+3. Redo **Step 2** and **Step 3**:
+   ```bash
+   python fetch_channels_faster.py
+   python update_db.py
+   ```
+   Then re-import the updated `settings.db` into FreeTube as described in Step 3.
+
+> **Note:** Reruns are much faster than the initial fetch. `fetch_channels_faster.py` skips any channel ID already present in `freetube_channels.json`, and uses `handles_mapping.json` to instantly resolve `@handles` it has seen before without hitting YouTube again. In practice this means only the *newly added* channels in the updated list need to be fetched, so an update run typically takes a few minutes rather than the full 1–2 hours needed for a first-time fetch.
 
 ---
 
