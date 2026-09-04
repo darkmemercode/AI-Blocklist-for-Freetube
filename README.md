@@ -78,7 +78,7 @@ python update_db.py
 ```
 
 ```bash
-# Option B: Use the standard script
+# Option B: Use the slow script
 python fetch_channels.py
 python update_db.py
 ```
