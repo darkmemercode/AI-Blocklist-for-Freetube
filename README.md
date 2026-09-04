@@ -6,11 +6,11 @@ A set of Python scripts and a pre-compiled dataset to manage and import channel 
 
 ## 📁 Repository Files
 
-* **`blocklist.txt`**: Raw input list of targeted YouTube channel IDs and handles curated by [AiSList by Override92](https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt).
+* **`blocklist.txt`**: Copy of the raw input list of targeted YouTube channel handles (e.g. @youtube) curated by [AiSList by Override92](https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt).
 * **`fetch_channels.py`**: Fetches channel metadata from YouTube based on `blocklist.txt` and generates `freetube_channels.json`.
 * **`fetch_channels_faster.py`**: A faster and more efficient version of `fetch_channels.py` that also creates a `handles_mapping.json` file that allows for faster re-runs when updating the blocklist.
 * **`freetube_channels.json`**: Pre-built channel blocklist with >21,000 AI-channels ready for database insertion.
-* **`handles_mapping.json`**: Cache mapping YouTube handles (@username) to their respective permanent Channel IDs (UC...) to speed up subsequent script runs.
+* **`handles_mapping.json`**: Cache mapping YouTube handles (@username) to their respective permanent Channel IDs (UC...) to speed up subsequent script runs when updating the list.
 * **`update_db.py`**: Injects the fetched channels into your FreeTube `settings.db` file.
 
 ---
@@ -23,7 +23,23 @@ If you just want the blocklist working as fast as possible, you can skip fetchin
 2. Download `freetube_channels.json` from this repo.
 3. Run `update_db.py`.
 
-> **Note:** This uses the channel list from the last time it was scraped, so it may not include the newest additions. If you want the most up-to-date list, follow the full steps below instead.
+> **Note:** This uses the channel list from the last time I downloaded the list, so it may not include the newest additions. If you want the most up-to-date list, follow the full steps below instead.
+
+---
+
+## 🤔 Why the Scripts Are Needed
+
+The public [AiSList blocklist by Override92](https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt) isn't in a format FreeTube can import directly — it only lists channel handles (e.g. `@youtube`).
+
+FreeTube's database needs more than that to recognize a channel. Each entry requires:
+* **Channel ID** (`UC...`) — the channel's permanent identifier.
+* **Preferred name** — the channel name shown in the UI.
+* **Icon** — the channel's avatar/icon.
+* **Icon href** — a link to that icon.
+
+None of this is included in the raw handle list, so [`fetch_channels_faster.py`](fetch_channels_faster.py) fetches it for every channel using `httpx` (fast HTML scraping) with a `yt-dlp` fallback for entries that fail to resolve. The results are saved to `freetube_channels.json` in the exact format FreeTube expects.
+
+Since the list currently contains 21,000+ channels, manually adding them to `settings.db` one by one isn't practical — that's what [`update_db.py`](update_db.py) automates. That said, nothing stops you from adding channels manually if you only need a handful.
 
 ---
 
@@ -45,8 +61,8 @@ pip install yt-dlp httpx
 1. Open **FreeTube**.
 2. Go to **Settings** → **Data**.
 3. Click **Export Settings** (or locate your existing `settings.db` file).
-4. Save the exported `settings.db` file in the same directory as the python scripts.
-
+4. Save the exported `settings.db` file in the same directory as these scripts.
+5. Create a `blocklist.txt` file in the same directory and copy and paste the contents of [AiSList blocklist by Override92](https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt) into it. Save the file.
 ---
 
 ### Step 2: Fetch Channel Data
@@ -69,7 +85,7 @@ python update_db.py
 ### Step 3: Import the Updated `settings.db` File
 1. Go to **Settings** → **Data**.
 2. Click **Import Settings** and select your updated `settings.db` file (or manually replace the file in your FreeTube data directory).
-3. *Optional:* Go to **Settings** → **Distraction Free** and untick **Show Added Items** to keep your UI clean without showing all 20k+ channels when looking through your settings.
+3. *Optional:* Go to **Settings** → **Distraction Free** and untick **Show Added Items** to keep your UI clean without showing all 20k+ channels.
 4. Restart FreeTube to apply the changes.
 
 ---
