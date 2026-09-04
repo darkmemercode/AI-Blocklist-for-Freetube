@@ -97,7 +97,7 @@ python update_db.py
 
 To pick up new channels added to the source list:
 
-1. Open [AiSList by Override92](https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt) and copy its full contents.
+1. Open [AiSList by Override92](https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt) and copy its full contents. Save the file.
 2. Paste them into your local `blocklist.txt`, replacing the old contents.
 3. Redo **Step 2** and **Step 3**:
    ```bash
