@@ -31,7 +31,7 @@ If you just want the blocklist working as fast as possible, you can skip fetchin
 
 The public [AiSList blocklist by Override92](https://github.com/Override92/AiSList/blob/main/AiSList/aislist_blocklist.txt) isn't in a format FreeTube can use directly — it only lists channel handles (e.g. `@youtube`).
 
-FreeTube's database needs more than that to recognize a channel. Each entry requires:
+FreeTube's database file `settings.db` needs more than that to recognize a channel. Each entry requires:
 * **Channel ID** (`UC...`) — the channel's permanent identifier.
 * **Preferred name** — the channel name shown in the UI.
 * **Icon** — the channel's avatar/icon.
