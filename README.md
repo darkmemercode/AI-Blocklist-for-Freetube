@@ -1,4 +1,4 @@
-# Imorting AI Channel Blocklists into FreeTube
+# Importing AI Channel Blocklists into FreeTube
 
 A set of Python scripts and a pre-compiled dataset to manage and import channel blocklists directly into [FreeTube](https://freetubeapp.io/).
 
