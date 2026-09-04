@@ -72,7 +72,7 @@ pip install yt-dlp httpx
 - This generates the `freetube_channels.json` file needed for the database update in `update_db.py`.
 
 ```bash
-# Option A: Use the faster, optimized script (Recommended)
+# Option A: Use the optimized script (Recommended)
 python fetch_channels_faster.py
 python update_db.py
 ```
