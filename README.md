@@ -66,7 +66,9 @@ pip install yt-dlp httpx
 ---
 
 ### Step 2: Fetch Channel Data
-Run `fetch_channels.py` or `fetch_channels_faster.py` to retrieve YouTube metadata for the channels listed in `blocklist.txt`. This generates the `freetube_channels.json` file needed for the database update in `update_db.py`.
+- Run `fetch_channels.py` or `fetch_channels_faster.py` to retrieve YouTube metadata for the channels listed in `blocklist.txt`. 
+- `fetch_channels_faster.py` takes about 1-2 hours to fetch the metadata due to sleep timers that are used to prevent rate limiting by YouTube. 
+- This generates the `freetube_channels.json` file needed for the database update in `update_db.py`.
 
 ```bash
 # Option A: Use the faster, optimized script (Recommended)
